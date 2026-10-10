@@ -1,0 +1,13 @@
+{
+  "model": "gpt-4o-mini",
+  "batch_size": 10,
+  "gemini_model": "gemini-3.5-flash-lite",
+  "gemini_batch_size": 50,
+  "gemini_min_interval_seconds": 4.2,
+  "confidence_threshold": 0.75,
+  "stream_days": 7,
+  "benchmark_sample_size": 210,
+  "random_seed": 20260929,
+  "request_timeout_seconds": 120,
+  "max_retries": 3
+}
