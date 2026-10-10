@@ -39,6 +39,22 @@ class PipelineTests(unittest.TestCase):
         self.assertIsNotNone(prediction)
         self.assertEqual(prediction.labels, ["feature_request"])
 
+    def test_rule_feature_indirect_request(self):
+        prediction = vp.rule_classify(
+            row("2b", "It would be nice to have dark mode", ["feature_request"], 4)
+        )
+        self.assertIsNotNone(prediction)
+        self.assertEqual(prediction.labels, ["feature_request"])
+
+    def test_low_score_short_review_routes_to_ai(self):
+        prediction = vp.rule_classify(row("2c", "Needs work", ["problem_report"], 2))
+        self.assertIsNone(prediction)
+
+    def test_high_score_short_review_is_irrelevant(self):
+        prediction = vp.rule_classify(row("2d", "Great app", ["irrelevant"], 5))
+        self.assertIsNotNone(prediction)
+        self.assertEqual(prediction.labels, ["irrelevant"])
+
     def test_ambiguous_review_routes_to_ai(self):
         prediction = vp.rule_classify(
             row(

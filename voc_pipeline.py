@@ -233,7 +233,9 @@ PROBLEM_RE = re.compile(
     re.IGNORECASE,
 )
 FEATURE_RE = re.compile(
-    r"\b(please add|would like (?:an?|the|to)|wish (?:it|there)|"
+    r"\b(please add|please support|can you (?:add|support|include)|"
+    r"could you (?:add|support|include)|would like (?:an?|the|to)|"
+    r"wish (?:it|there)|it would be (?:nice|great|useful) to (?:have|see)|"
     r"should (?:add|have|allow)|need (?:an? |the )?(?:option|feature)|"
     r"feature request|missing feature|bring back|add (?:an?|the) |"
     r"please (?:make|allow|include))\b",
@@ -256,9 +258,9 @@ def rule_classify(row: dict) -> Prediction | None:
         labels = ["feature_request"]
         reason = "명시적인 기능 추가·변경 요청 표현"
         confidence = 0.88
-    elif word_count <= 8 and not has_problem and not has_feature:
+    elif word_count <= 8 and score >= 4 and not has_problem and not has_feature:
         labels = ["irrelevant"]
-        reason = "요구사항 단서가 없는 8단어 이하의 짧은 평가"
+        reason = "높은 별점이며 요구사항 단서가 없는 8단어 이하의 짧은 평가"
         confidence = 0.82
     else:
         return None
