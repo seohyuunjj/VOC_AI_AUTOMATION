@@ -1,6 +1,6 @@
 # 데이터 출처 및 사용 범위
 
-이 프로젝트는 공개 앱 리뷰 데이터인 Mini-BAR의 영어 분류 데이터 6,000건을 사용한다.
+이 프로젝트는 공개 앱 리뷰 데이터셋 Mini-BAR의 영어 분류 데이터 6,000건을 사용했습니다.
 
 - 원 저장소: <https://github.com/Jl-wei/mini-bar>
 - 데이터 경로: `dataset/for_classification/*.en.csv`
@@ -13,5 +13,5 @@
 
 > Wei, J., Courbis, A.-L., Lambolais, T., Xu, B., Bernard, P. L., & Dray, G. (2023). Zero-shot Bilingual App Reviews Mining with Large Language Models. ICTAI 2023, 898–904. https://doi.org/10.1109/ICTAI59109.2023.00135
 
-원문 리뷰는 포트폴리오 설명에 대량으로 노출하지 않는다. 결과 리포트에는 집계 수치와 짧은 예시만 사용한다.
+원문 리뷰는 포트폴리오에 대량으로 싣지 않고, 결과 리포트에는 집계 수치와 짧은 예시만 씁니다.
 
